@@ -1,0 +1,24 @@
+<div class="signup">
+  <form class="signup__form" [formGroup]="signUpForm">
+    <div class="signup__form__field">
+      <label for="firstName">Nome</label>
+      <input type="text" id="firstName" formControlName="firstName">
+    </div>
+    <div class="signup__form__field">
+      <label for="lastName">Sobrenome</label>
+      <input type="text" id="lastName" formControlName="lastName">
+    </div>
+    <div class="signup__form__field">
+      <label for="password">Senha</label>
+      <input type="text" id="password" formControlName="password">
+    </div>
+    <div class="signup__form__field">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" formControlName="email">
+    </div>
+
+    <div class="signup__form__buttons">
+      <button type="button">Entrar</button>
+    </div>
+  </form>
+</div>

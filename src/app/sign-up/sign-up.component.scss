@@ -1,0 +1,36 @@
+.signup {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__form {
+    padding: 24px;
+    border-radius: 4px;
+    &__field {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+
+      & + & {
+        margin-top: 8px;
+      }
+    }
+
+    &__buttons {
+      margin-top: 8px;
+      width: 100%;
+
+      button {
+        padding: 8px;
+        width: 100%;
+        border: none;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
