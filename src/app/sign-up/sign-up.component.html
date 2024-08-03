@@ -3,22 +3,47 @@
     <div class="signup__form__field">
       <label for="firstName">Nome</label>
       <input type="text" id="firstName" formControlName="firstName">
+      @if (signUpForm.get('firstName')?.hasError('required') && signUpForm.get('firstName')?.touched) {
+        <span class="input_message_error">Campo obrigatório</span>
+      }
     </div>
     <div class="signup__form__field">
       <label for="lastName">Sobrenome</label>
       <input type="text" id="lastName" formControlName="lastName">
+      @if (signUpForm.get('lastName')?.hasError('required') && signUpForm.get('lastName')?.touched) {
+        <span class="input_message_error">Campo obrigatório</span>
+      }
     </div>
     <div class="signup__form__field">
       <label for="password">Senha</label>
-      <input type="text" id="password" formControlName="password">
+      <input type="password" id="password" formControlName="password">
+      @if (signUpForm.get('password')?.hasError('required') && signUpForm.get('password')?.touched) {
+        <span class="input_message_error">Campo obrigatório</span>
+      }
+      @if (signUpForm.get('password')?.hasError('minlength') && signUpForm.get('password')?.touched) {
+        <span class="input_message_error">A senha precisa ter no mínimo 6 caracteres</span>
+      }
     </div>
     <div class="signup__form__field">
       <label for="email">E-mail</label>
       <input type="email" id="email" formControlName="email">
+      @if (signUpForm.get('email')?.hasError('required') && signUpForm.get('email')?.touched) {
+        <span class="input_message_error">Campo obrigatório</span>
+      }
+      @if (signUpForm.get('email')?.hasError('email')) {
+        <span class="input_message_error">
+          O campo precisa ser no formato email email&#64;email.com.br
+        </span>
+      }
     </div>
 
     <div class="signup__form__buttons">
-      <button type="button">Entrar</button>
+      <button
+        type="button"
+        (click)="submitSignUpForm()"
+        [disabled]="signUpForm.invalid">
+        Entrar
+      </button>
     </div>
   </form>
 </div>

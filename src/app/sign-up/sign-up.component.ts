@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SignUpService } from '../core/services/signup.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,9 +10,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class SignUpComponent {
   public signUpForm!: FormGroup
 
-  constructor (
-    private readonly formBuilder: FormBuilder
-  ) {
+  private readonly formBuilder = inject(FormBuilder)
+  private readonly signUpService = inject(SignUpService)
+
+  constructor () {
     this.signUpForm = this.formBuilder.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
@@ -19,11 +21,8 @@ export class SignUpComponent {
       email: ['', [Validators.required, Validators.email]]
     })
   }
+
+  public submitSignUpForm(): void {
+    this.signUpService.signUp(this.signUpForm.getRawValue())
+  }
 }
-
-
-/* firstName: z.string(),
-lastName: z.string(),
-password: z.string().min(6),
-email: z.string().email(),
- */
