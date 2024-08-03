@@ -4,6 +4,7 @@ import { SignUpRoutingModule } from './sign-up-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './sign-up.component';
 import { InputMessageErrorModule } from '../core/components/input-message-error.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -11,8 +12,9 @@ import { InputMessageErrorModule } from '../core/components/input-message-error.
   ],
   imports: [
     CommonModule,
-    SignUpRoutingModule,
     ReactiveFormsModule,
+
+    SignUpRoutingModule,
     InputMessageErrorModule
   ]
 })

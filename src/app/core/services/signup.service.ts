@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { SignUpInput } from "../interfaces/signup.interface";
 import { HttpClient } from "@angular/common/http";
 
@@ -6,9 +6,13 @@ import { HttpClient } from "@angular/common/http";
   providedIn: 'root'
 })
 export class SignUpService {
-  //private readonly httpClientService: HttpClient
+  private readonly httpClientService = inject(HttpClient)
 
   signUp(input: SignUpInput) {
-    console.log('input ', input)
+    this.httpClientService.post('http://localhost:3000/users', input).subscribe({
+      next: () => {
+        console.log('usuario criado com sucesso!')
+      }
+    })
   }
 }
