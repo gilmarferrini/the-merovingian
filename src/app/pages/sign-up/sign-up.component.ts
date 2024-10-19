@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SignUpService } from '../core/services/signup.service';
+import { SignUpService } from '../../core/services/signup.service';
 
 @Component({
   selector: 'app-sign-up',
