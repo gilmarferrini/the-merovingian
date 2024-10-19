@@ -1,16 +1,16 @@
 <div class="signup">
   <form class="signup__form" [formGroup]="signUpForm">
     <div class="signup__form__field">
-      <label for="firstName">Nome</label>
-      <input type="text" id="firstName" formControlName="firstName">
-      @if (signUpForm.get('firstName')?.hasError('required') && signUpForm.get('firstName')?.touched) {
+      <label for="username">Nome</label>
+      <input type="text" id="username" formControlName="username">
+      @if (signUpForm.get('username')?.hasError('required') && signUpForm.get('username')?.touched) {
         <app-input-message-error message="Campo obrigatório" />
       }
     </div>
     <div class="signup__form__field">
-      <label for="lastName">Sobrenome</label>
-      <input type="text" id="lastName" formControlName="lastName">
-      @if (signUpForm.get('lastName')?.hasError('required') && signUpForm.get('lastName')?.touched) {
+      <label for="description">Descrição</label>
+      <input type="text" id="description" formControlName="description">
+      @if (signUpForm.get('description')?.hasError('required') && signUpForm.get('description')?.touched) {
         <app-input-message-error message="Campo obrigatório" />
       }
     </div>
