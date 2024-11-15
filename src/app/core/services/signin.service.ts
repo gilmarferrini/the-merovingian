@@ -9,12 +9,7 @@ export class SignInService {
 
   private readonly httpClientService = inject(HttpClient)
 
-  signUp(input: SignInInput) {
-    this.httpClientService.post('http://localhost:4000/users/authenticate', input).subscribe({
-      next: (payload: any) => {
-        console.log('payload ', payload)
-        console.log('usuario autenticado com sucesso!')
-      }
-    })
+  signIn(input: SignInInput) {
+    return this.httpClientService.post<{ token: string }>('http://localhost:4000/users/authenticate', input)
   }
 }
