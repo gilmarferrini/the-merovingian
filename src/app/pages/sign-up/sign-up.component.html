@@ -1,1 +1,24 @@
-<h1>sign up</h1>
+<form [formGroup]="signUpForm">
+
+  <div>
+    <label for="name">Nome</label>
+    <input formControlName="name" type="text" name="name" />
+  </div>
+
+  <div>
+    <label for="email">E-mail</label>
+    <input formControlName="email" type="email" name="email"/>
+  </div>
+
+  <div>
+    <label for="password">Senha</label>
+    <input formControlName="password" type="password" name="password" />
+  </div>
+
+  <div>
+    <label for="name">Confirmação de senha</label>
+    <input formControlName="confirmPassword" type="password" name="confirmPassword" />
+  </div>
+
+  <button (click)="signUp($event)">Submit</button>
+</form>
