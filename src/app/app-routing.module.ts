@@ -5,11 +5,10 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'home',
+    redirectTo: '',
   },
-  {
-    path: 'home', loadChildren: () => import('./pages/home/home.module').then(module => module.HomeModule)
-  },
+  { path: '', loadChildren: () => import('./pages/home/home.module').then(module => module.HomeModule) },
+  { path: 'criar-conta', loadChildren: () => import('./pages/sign-up/sign-up.module').then(module => module.SignUpModule) }
 ];
 
 @NgModule({
